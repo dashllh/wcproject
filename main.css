@@ -1,4 +1,5 @@
 /* 测试页面的属性定义 */
 .rtitems {
     width: 20%;
+    user-select: none;
 }
