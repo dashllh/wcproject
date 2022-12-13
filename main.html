@@ -1,0 +1,36 @@
+<!-- 用于试验控制系统项目的Web Components组件测试页面 -->
+<!-- 客户端UI使用JQuery Easy UI开发 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components Test Page</title>
+
+    <!-- 导入JQuery相关组件 -->
+
+    <!-- 导入JQuery Easy UI相关组件 -->
+
+    <!-- 导入页面属性 -->
+    <link rel="stylesheet" href="./main.css">
+
+    <!-- 实时值显示组件(横向布局) -->
+    <link rel="stylesheet" href="./components/rt-item/rt-item.css">
+    <script type="module" src="./components/rt-item/rt-item.js"></script>
+
+    <!-- 实时值显示组件(纵向布局) -->
+    <link rel="stylesheet" href="./components/rt-itemv/rt-itemv.css">
+    <script type="module" src="./components/rt-itemv/rt-itemv.js"></script>
+</head>
+
+<body>
+    <div class="rtitems">
+        <rt-item label="Test" round="1"></rt-item>
+        <rt-item label="Test2" round="1"></rt-item>
+        <rt-itemv label="纵向布局" round="2"></rt-itemv>
+    </div>
+</body>
+
+</html>
