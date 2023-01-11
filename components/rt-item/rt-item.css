@@ -2,7 +2,7 @@
 .rt-item {
     display: grid;
     grid-template-columns: 1fr 0.8fr;
-    width: 300px;
+    width: 280px;
     margin: 3px;
     text-align: center;
     border: none;

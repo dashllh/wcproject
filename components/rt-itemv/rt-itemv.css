@@ -1,9 +1,9 @@
 /* 实时值组件样式(纵向布局) */
 .rt-itemv {
     margin: 3px;
-    width: 140px;
+    width: 125px;
     text-align: center;
-    border: 1px solid silver;
+    border: none;
     border-radius: 3px;
     box-shadow: 0px 0px 5px rgba(120, 120, 120, 0.6);
   }
