@@ -1,8 +1,7 @@
 /* 实时值组件样式(纵向布局) */
 .rt-itemv {
     margin: 3px;
-    max-width: 120px;
-    max-height: 80px;
+    width: 140px;
     text-align: center;
     border: 1px solid silver;
     border-radius: 3px;
