@@ -31,6 +31,32 @@ class RealTimeItem extends HTMLElement {
         this.#unit = unit;
     }
 
+    // 内部私有方法
+    updateDisplayColor() {        
+        if (this.#min !== undefined && this.#max !== undefined) {
+            if (parseInt(this.#value * (10 ** parseInt(this.#round))) > parseInt(this.#max * (10 ** parseInt(this.#round)))
+            || parseInt(this.#value * (10 ** parseInt(this.#round))) < parseInt(this.#min * (10 ** parseInt(this.#round)))) {
+                this.#displaycolor = 'alert';
+            } else {
+                this.#displaycolor = 'normal';
+            }
+        } else if (this.#min === undefined && this.#max !== undefined) {
+            if (parseInt(this.#value * (10 ** parseInt(this.#round))) > parseInt(this.#max * (10 ** parseInt(this.#round)))) {
+                this.#displaycolor = 'alert';
+            } else {
+                this.#displaycolor = 'normal';
+            }
+        } else if (this.#min !== undefined && this.#max === undefined) {
+            if (parseInt(this.#value * (10 ** parseInt(this.#round))) < parseInt(this.#min * (10 ** parseInt(this.#round)))) {
+                this.#displaycolor = 'alert';
+            } else {
+                this.#displaycolor = 'normal';
+            }
+        } else {
+            this.#displaycolor = 'normal';
+        }
+    }
+
     //getter setter
     set Label(data) {
         this.#label = data;
@@ -45,40 +71,18 @@ class RealTimeItem extends HTMLElement {
         switch (this.#round) {
             case '0':
                 this.#value = Math.round(data);
-                if(this.#value > this.#max || this.#value < this.#min) {
-                    this.#displaycolor = 'alert';
-                } else {
-                    this.#displaycolor = 'normal';
-                }
                 break;
             case '1':
                 this.#value = Math.round((data + Number.EPSILON) * 10) / 10;
-                if(parseInt(this.#value * 10) > parseInt(this.#max * 10) 
-                  || parseInt(this.#value * 10) < parseInt(this.#min * 10)) {
-                    this.#displaycolor = 'alert';
-                } else {
-                    this.#displaycolor = 'normal';
-                }
                 break;
             case '2':
                 this.#value = Math.round((data + Number.EPSILON) * 100) / 100;
-                if(parseInt(this.#value * 100) > parseInt(this.#max * 100) 
-                  || parseInt(this.#value * 100) < parseInt(this.#min * 100)) {
-                    this.#displaycolor = 'alert';
-                } else {
-                    this.#displaycolor = 'normal';
-                }                
                 break;
             case '3':
                 this.#value = Math.round((data + Number.EPSILON) * 1000) / 1000;
-                if(parseInt(this.#value * 1000) > parseInt(this.#max * 1000) 
-                  || parseInt(this.#value * 1000) < parseInt(this.#min * 1000)) {
-                    this.#displaycolor = 'alert';
-                } else {
-                    this.#displaycolor = 'normal';
-                }
                 break;
         }
+        this.updateDisplayColor();
         this.render();
     }
 
@@ -142,7 +146,7 @@ class RealTimeItem extends HTMLElement {
                 this.min = newvalue;
                 break;
             case 'max':
-                this.max = newvalue;        
+                this.max = newvalue;
                 break;
         }
     }
