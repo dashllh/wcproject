@@ -6,11 +6,11 @@
  * 控制参数:
  *          1.round:string - 保留小数点后数据位数
  *          
- * 修改日期: 2023-6-12
+ * 修改日期: 2023-7-5
  * 
  * 修改履历:
  *          1. 将属性接口Value修改为value以匹配数据模型绑定方法中对.value的统一访问
- *  
+ *          2. 增加上下限阈值属性,超过设定阈值将显示为红色
  */
 
 class RealTimeItem extends HTMLElement {
